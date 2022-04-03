@@ -54,6 +54,7 @@ public class CourseSchedule implements Problem<Boolean> {
     @Override
     public Boolean solve(FastScanner scanner) {
         int numCourses = scanner.nextInt();
-        scanner.nextIntMatrix();
+        int[][] prerequisites = scanner.nextIntMatrix();
+        return canFinish(numCourses, prerequisites);
     }
 }

@@ -3,7 +3,9 @@ package com.izzulhaziq.blind75;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
+import java.util.function.Function;
 
 public class FastScanner {
     private BufferedReader br;
@@ -27,7 +29,10 @@ public class FastScanner {
     }
 
     public int[] nextIntArray() {
-        String s = this.next();
+        return getInts(next());
+    }
+
+    private int[] getInts(String s) {
         String[] split = s.substring(1, s.length() - 1).split(",");
         if (split.length == 1 && split[0].isEmpty()) {
             return new int[0];
@@ -61,5 +66,19 @@ public class FastScanner {
             e.printStackTrace();
         }
         return str;
+    }
+
+    public int[][] nextIntMatrix() {
+        String s = next();
+        String[] split = s.substring(1, s.length() - 1).split("],");
+        if (split.length == 1 && split[0].isEmpty()) {
+            return new int[0][];
+        }
+
+        int[][] res = new int[0][split.length];
+        for (int i = 0; i < split.length; i++) {
+            res[i] = getInts(split[i] + "]");
+        }
+        return res;
     }
 }
